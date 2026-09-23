@@ -18,7 +18,7 @@ Proposta desenvolvida no âmbito do projeto de pesquisa/iniciação científica 
 ## Como Executar
 
 ### Pré-requisitos
-* Python 3.10+ (ou compilador C++)
+* Python 3.10+
 * Dependências listadas em `requirements.txt`
 
 ### Instalação e Execução
