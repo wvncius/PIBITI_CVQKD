@@ -1,6 +1,6 @@
 # Módulos de Software para Simulador CV-QKD (Reconciliação de Informação)
 
-## 📌 Descrição do Projeto
+## Descrição do Projeto
 Este repositório contém o desenvolvimento de uma ferramenta computacional modular para simulação da etapa de reconciliação de informação em sistemas de Distribuição Quântica de Chaves baseada em Variáveis Contínuas (CVQKD).
 
 Proposta desenvolvida no âmbito do projeto de pesquisa/iniciação científica (PIBITI).
