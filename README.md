@@ -7,7 +7,7 @@ Proposta desenvolvida no âmbito do projeto de pesquisa/iniciação científica 
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 * `src/`: Código-fonte dos módulos do simulador.
 * `tests/`: Scripts de teste e verificação dos algoritmos.
 * `docs/`: Relatórios acadêmicos, referências teóricas e notas de projeto.
@@ -15,7 +15,7 @@ Proposta desenvolvida no âmbito do projeto de pesquisa/iniciação científica 
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 * Python 3.10+ (ou compilador C++)
