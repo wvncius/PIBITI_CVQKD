@@ -1,0 +1,43 @@
+
+name: Compilar documentos LaTeX
+
+on:
+  push:
+    paths:
+      - "docs/**/*.tex"
+      - ".github/workflows/compilar-latex.yml"
+  workflow_dispatch:
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-pictures \
+            texlive-lang-portuguese
+
+      - name: Compilar os dois documentos
+        run: |
+          mkdir -p pdfs
+          cd docs
+          for arquivo in glossario fluxo_reconciliacao; do
+            pdflatex -interaction=nonstopmode \
+              -halt-on-error "$arquivo.tex"
+            cp "$arquivo.pdf" "../pdfs/"
+          done
+
+      - name: Disponibilizar PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentos-pibiti
+          path: pdfs/*.pdf
+          if-no-files-found: error
