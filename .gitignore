@@ -1,0 +1,18 @@
+
+# Ambientes virtuais
+.venv/
+venv/
+
+# Arquivos temporários Python
+__pycache__/
+*.pyc
+
+# Configurações locais
+.vscode/
+.idea/
+
+# Resultados gerados pelo simulador
+data/resultados/
+
+# Cache de testes
+.pytest_cache/
