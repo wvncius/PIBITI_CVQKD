@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+\hypersetup{hidelinks}
+
+\title{Glossário introdutório\\Reconciliação de informação em sistemas CV-QKD}
+\author{PIBITI -- INCT NanoQuantSS}
+\date{Outubro de 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Objetivo}
+Reunir os principais conceitos utilizados no estudo inicial de um simulador elementar do canal BI-AWGN, conforme o plano de trabalho PIBITI 2026--2027. Este documento é introdutório e não descreve toda a cadeia física ou a segurança de um protocolo CV-QKD.
+
+\section{QKD -- Distribuição Quântica de Chaves}
+\textit{Quantum Key Distribution}. Conjunto de protocolos destinados ao estabelecimento de chaves criptográficas entre participantes, com etapas quânticas e clássicas.
+
+\section{CV-QKD -- QKD por Variáveis Contínuas}
+\textit{Continuous-Variable Quantum Key Distribution}. Modalidade de QKD que utiliza observáveis contínuos, como quadraturas do campo eletromagnético. Alice e Bob obtêm dados correlacionados, mas não necessariamente idênticos.
+
+\section{Reconciliação de informação}
+Etapa de pós-processamento clássico destinada a corrigir diferenças entre dados correlacionados de Alice e Bob. Pode utilizar códigos de correção de erros, como LDPC.
+
+\section{Bit e símbolo antipodal}
+Um bit assume os valores 0 ou 1. No mapeamento antipodal adotado neste simulador, usa-se
+\begin{equation}
+0\mapsto +1,\qquad 1\mapsto -1,\qquad x=1-2b.
+\end{equation}
+Os símbolos $+1$ e $-1$ são opostos e permitem representar uma entrada binária para o canal.
+
+\section{Variável aleatória e distribuição gaussiana}
+Uma variável aleatória representa o resultado numérico de um fenômeno aleatório. A distribuição normal é descrita por média $\mu$ e variância $\sigma^2$:
+\begin{equation}
+Z\sim\mathcal{N}(\mu,\sigma^2).
+\end{equation}
+No simulador básico, adota-se $\mu=0$.
+
+\section{Média, variância e desvio-padrão}
+A média indica o centro da distribuição; a variância, a dispersão quadrática em torno da média; e o desvio-padrão é $\sigma=\sqrt{\sigma^2}$. Média zero não significa ausência de ruído.
+
+\section{Canal BI-AWGN}
+\textit{Binary-Input Additive White Gaussian Noise}. Modelo com entrada binária antipodal e ruído gaussiano branco aditivo:
+\begin{equation}
+Y=X+Z,\qquad X\in\{-1,+1\},\qquad Z\sim\mathcal{N}(0,\sigma^2).
+\end{equation}
+No modelo discreto empregado, as amostras de ruído são independentes e identicamente distribuídas.
+
+\section{Detecção por decisão dura}
+Para símbolos igualmente prováveis e ruído gaussiano simétrico, a estimativa de bit é obtida pelo sinal do valor recebido:
+\begin{equation}
+\hat b=\begin{cases}
+0,&Y\ge 0,\\
+1,&Y<0.
+\end{cases}
+\end{equation}
+
+\section{BER -- Taxa de erro de bits}
+\textit{Bit Error Rate}. Proporção de bits detectados incorretamente em uma simulação:
+\begin{equation}
+\mathrm{BER}=\frac{N_{\mathrm{erros}}}{N_{\mathrm{bits}}}.
+\end{equation}
+Para a entrada antipodal unitária do modelo, a probabilidade teórica de erro é $P_b=Q(1/\sigma)$, sob decisão ótima com probabilidades a priori iguais.
+
+\section{LDPC -- Código de paridade de baixa densidade}
+\textit{Low-Density Parity-Check}. Família de códigos corretores de erros descritos por matrizes de verificação de paridade esparsas. Sua implementação será tratada em etapas posteriores do projeto.
+
+\section*{Referências orientadoras}
+\begin{itemize}
+\item Plano de Trabalho PIBITI 2026--2027, INCT NanoQuantSS, seções 7--10.
+\item MACKAY, D. J. C. \textit{Information Theory, Inference, and Learning Algorithms}. Cambridge University Press, 2003.
+\item LEVERRIER, A. et al. \textit{Multidimensional reconciliation for a continuous-variable quantum key distribution}. Physical Review A, 77, 042325, 2008.
+\item WEEDBROOK, C. et al. \textit{Gaussian quantum information}. Reviews of Modern Physics, 84, 621--669, 2012.
+\end{itemize}
+
+\end{document}
