@@ -31,6 +31,7 @@ erros = 0
 
 for i in range(len(bits)):
     if bits[i] != bits_decodificados[i]:
+        print(f"Erro encontrado na posição {i}: bit original = {bits[i]}, bit decodificado = {bits_decodificados[i]}")
         erros += 1
 
 print(" Número de erros:", erros)
