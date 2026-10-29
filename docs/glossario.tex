@@ -1,24 +1,50 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,openright,oneside,a4paper,english,brazil]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
-\usepackage{lmodern}
-\usepackage{geometry}
-\usepackage{amsmath,amssymb}
-\usepackage{hyperref}
-\geometry{margin=2.5cm}
-\hypersetup{hidelinks}
+\usepackage[alf]{abntex2cite}
+\usepackage{lmodern,indentfirst,microtype,amsmath,amsfonts,amssymb,graphicx,xurl,xcolor,hyperref,booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
-\title{Glossário introdutório\\Reconciliação de informação em sistemas CV-QKD}
-\author{PIBITI -- INCT NanoQuantSS}
-\date{Outubro de 2026}
+\titulo{Glossário de Conceitos Fundamentais de CV-QKD}
+\autor{Willian Vinícius Oliveira Araújo}
+\local{Campina Grande, PB, Brasil}
+\data{Outubro de 2026}
+\instituicao{
+ Universidade Federal de Campina Grande (UFCG)
+ \par
+ Unidade Acadêmica de Engenharia Elétrica (UAEE)}
+\tipotrabalho{Documentação Técnica -- PIBITI}
+\preambulo{Glossário introdutório dos fundamentos utilizados no simulador de reconciliação de informação em sistemas CV-QKD.}
 
+\definecolor{blue}{RGB}{41,5,195}
+\makeatletter
+\hypersetup{
+ pdftitle={\@title},
+ pdfauthor={\@author},
+ pdfsubject={PIBITI - Reconciliação da informação em CV-QKD},
+ pdfcreator={LaTeX with abnTeX2},
+ pdfkeywords={PIBITI, CV-QKD, BI-AWGN, reconciliação},
+ colorlinks=true,
+ linkcolor=blue,
+ citecolor=blue,
+ filecolor=magenta,
+ urlcolor=blue,
+ bookmarksdepth=4
+}
+\makeatother
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
 \begin{document}
-\maketitle
+\selectlanguage{brazil}
+\frenchspacing
+\imprimircapa
+\textual
 
-\section*{Objetivo}
+\chapter{Objetivo}
 Reunir os principais conceitos utilizados no estudo inicial de um simulador elementar do canal BI-AWGN, conforme o plano de trabalho PIBITI 2026--2027. Este documento é introdutório e não descreve toda a cadeia física ou a segurança de um protocolo CV-QKD.
 
+\chapter{Conceitos fundamentais}
 \section{QKD -- Distribuição Quântica de Chaves}
 \textit{Quantum Key Distribution}. Conjunto de protocolos destinados ao estabelecimento de chaves criptográficas entre participantes, com etapas quânticas e clássicas.
 
@@ -71,7 +97,7 @@ Para a entrada antipodal unitária do modelo, a probabilidade teórica de erro �
 \section{LDPC -- Código de paridade de baixa densidade}
 \textit{Low-Density Parity-Check}. Família de códigos corretores de erros descritos por matrizes de verificação de paridade esparsas. Sua implementação será tratada em etapas posteriores do projeto.
 
-\section*{Referências orientadoras}
+\chapter{Referências orientadoras}
 \begin{itemize}
 \item Plano de Trabalho PIBITI 2026--2027, INCT NanoQuantSS, seções 7--10.
 \item MACKAY, D. J. C. \textit{Information Theory, Inference, and Learning Algorithms}. Cambridge University Press, 2003.

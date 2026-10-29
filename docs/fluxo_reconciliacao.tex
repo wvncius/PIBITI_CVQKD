@@ -1,27 +1,50 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,openright,oneside,a4paper,english,brazil]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
-\usepackage{lmodern}
-\usepackage{geometry}
-\usepackage{amsmath,amssymb}
+\usepackage[alf]{abntex2cite}
+\usepackage{lmodern,indentfirst,microtype,amsmath,amsfonts,amssymb,graphicx,xurl,xcolor,hyperref,booktabs}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
-\usepackage{hyperref}
-\geometry{margin=2.5cm}
-\hypersetup{hidelinks}
 
-\title{Fluxo funcional do simulador elementar BI-AWGN\\PIBITI CV-QKD}
-\author{PIBITI -- INCT NanoQuantSS}
-\date{Outubro de 2026}
+\titulo{Fluxo Funcional do Simulador BI-AWGN}
+\autor{Willian Vinícius Oliveira Araújo}
+\local{Campina Grande, PB, Brasil}
+\data{Outubro de 2026}
+\instituicao{
+ Universidade Federal de Campina Grande (UFCG)
+ \par
+ Unidade Acadêmica de Engenharia Elétrica (UAEE)}
+\tipotrabalho{Documentação Técnica -- PIBITI}
+\preambulo{Documentação do fluxo elementar de mapeamento, canal com ruído e detecção no projeto PIBITI.}
 
+\definecolor{blue}{RGB}{41,5,195}
+\makeatletter
+\hypersetup{
+ pdftitle={\@title},
+ pdfauthor={\@author},
+ pdfsubject={PIBITI - Reconciliação da informação em CV-QKD},
+ pdfcreator={LaTeX with abnTeX2},
+ pdfkeywords={PIBITI, CV-QKD, BI-AWGN, reconciliação},
+ colorlinks=true,
+ linkcolor=blue,
+ citecolor=blue,
+ filecolor=magenta,
+ urlcolor=blue,
+ bookmarksdepth=4
+}
+\makeatother
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
 \begin{document}
-\maketitle
+\selectlanguage{brazil}
+\frenchspacing
+\imprimircapa
+\textual
 
-\section{Objetivo e delimitação}
+\chapter{Objetivo e delimitação}
 Descrever a cadeia elementar de geração de bits, mapeamento antipodal, passagem por canal BI-AWGN, detecção e cálculo de BER. Trata-se de uma base didática e computacional para os futuros módulos de reconciliação; o fluxo não implementa a reconciliação multidimensional completa nem um decodificador LDPC.
 
-\section{Diagrama funcional}
+\chapter{Diagrama funcional}
 \begin{center}
 \begin{tikzpicture}[
     node distance=0.78cm,
@@ -40,7 +63,7 @@ Descrever a cadeia elementar de geração de bits, mapeamento antipodal, passage
 \end{tikzpicture}
 \end{center}
 
-\section{Etapas e responsabilidades}
+\chapter{Etapas e responsabilidades}
 \begin{enumerate}
 \item \textbf{Fonte:} gerar bits pseudoaleatórios com semente registrada para reprodutibilidade.
 \item \textbf{Mapeamento:} converter cada bit em um símbolo antipodal $+1$ ou $-1$, usando uma convenção única.
@@ -52,17 +75,17 @@ Descrever a cadeia elementar de geração de bits, mapeamento antipodal, passage
 \end{equation}
 \end{enumerate}
 
-\section{Exemplo verificável}
+\chapter{Exemplo verificável}
 Para $b=1$, temos $x=1-2(1)=-1$. Se o ruído sorteado for $z=+0{,}4$, então
 \begin{equation}
 y=-1+0{,}4=-0{,}6.
 \end{equation}
 Como $y<0$, o detector estima $\hat b=1$: não houve erro nesta observação.
 
-\section{Relação com o plano de trabalho}
+\chapter{Relação com o plano de trabalho}
 Este diagrama atende ao estudo introdutório de outubro de 2026 (bits em canal com ruído, mapeamento antipodal e BI-AWGN). A arquitetura futura do protótipo modular acrescentará representação LDPC, cálculo de LLR, decodificadores, controle experimental, persistência e visualização, conforme as fases seguintes do plano.
 
-\section*{Referências orientadoras}
+\chapter{Referências orientadoras}
 \begin{itemize}
 \item Plano de Trabalho PIBITI 2026--2027, INCT NanoQuantSS, seções 8--10.
 \item MACKAY, D. J. C. \textit{Information Theory, Inference, and Learning Algorithms}. Cambridge University Press, 2003.
