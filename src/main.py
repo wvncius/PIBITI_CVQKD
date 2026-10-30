@@ -4,7 +4,7 @@ import numpy as np
 
 rng = np.random.default_rng(42)
 
-bits = rng.integers(0, 2, size=10)
+bits = rng.integers(0, 2, size=10000)
 
 
 #mapeamento antipodal
@@ -13,25 +13,24 @@ simbolos = 1 - 2 * bits
 
 #gerar ruído gaussiano
 
-sigma = 0.4
-ruido = rng.normal(0, sigma, size=simbolos.shape)
+sigma = 1
+ruido = rng.normal(0, sigma, size=len(bits))
 
 recebido = simbolos + ruido
 
-print(" Bits gerados:", bits)
-print(" Símbolos mapeados:", simbolos)
-print(" Ruído gaussiano:", ruido)
-print(" Sinal recebido:", recebido)
+#print(" Bits gerados:", bits)
+#print(" Símbolos mapeados:", simbolos)
+#print(" Ruído gaussiano:", ruido)
+#print(" Sinal recebido:", recebido)
 
 bits_decodificados = (recebido < 0).astype(int)
 
-print(" Bits decodificados:", bits_decodificados)
+#print(" Bits decodificados:", bits_decodificados)
 
 erros = 0
 
 for i in range(len(bits)):
     if bits[i] != bits_decodificados[i]:
-        print(f"Erro encontrado na posição {i}: bit original = {bits[i]}, bit decodificado = {bits_decodificados[i]}")
         erros += 1
 
 print(" Número de erros:", erros)
